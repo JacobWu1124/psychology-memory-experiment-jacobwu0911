@@ -1,0 +1,59 @@
+functionsDirectory = "/Users/taohui/Documents/ChatGPT/Psychology Project/netlify/functions"
+functionsDirectoryOrigin = "config-v1"
+headersOrigin = "config"
+plugins = []
+redirects = []
+
+[build]
+publish = "/Users/taohui/Documents/ChatGPT/Psychology Project/dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
+functions = "/Users/taohui/Documents/ChatGPT/Psychology Project/netlify/functions"
+
+  [build.environment]
+  NODE_VERSION = "22"
+  PYTHON_VERSION = "3.11"
+
+  [build.processing]
+
+    [build.processing.css]
+
+    [build.processing.html]
+
+    [build.processing.images]
+
+    [build.processing.js]
+
+  [build.services]
+
+[database]
+
+  [database.migrations]
+  path = "/Users/taohui/Documents/ChatGPT/Psychology Project/netlify/database/migrations"
+
+[functions]
+
+  [functions."*"]
+  node_bundler = "esbuild"
+
+[[headers]]
+for = "/*"
+
+  [headers.values]
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "no-referrer"
+  X-Frame-Options = "DENY"
+  Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+[[headers]]
+for = "/media/*"
+
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/api/*"
+
+  [headers.values]
+  Cache-Control = "no-store"
